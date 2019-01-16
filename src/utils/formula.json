@@ -1,0 +1,12 @@
+{
+  "darken-1": "color(primary shade(10%))",
+  "lighten-1": "color(primary tint(10%))",
+  "lighten-2": "color(primary tint(20%))",
+  "lighten-3": "color(primary tint(30%))",
+  "lighten-4": "color(primary tint(40%))",
+  "lighten-5": "color(primary tint(50%))",
+  "lighten-6": "color(primary tint(60%))",
+  "lighten-7": "color(primary tint(70%))",
+  "lighten-8": "color(primary tint(80%))",
+  "lighten-9": "color(primary tint(90%))"
+}
