@@ -15,6 +15,16 @@
           @click="downloadZip">
           {{ langConfig.header.download }}
         </li>
+        <li>
+          <el-select v-model="version" placeholder="请选择" @change="changeVer">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </li>
       </ul>
     </el-header>
     <el-container>
@@ -70,6 +80,14 @@
   const primaryDefaultColor = '#12c287'
   const primaryDefaultActiveColor = '#0e9367'
 
+  const getQueryString = function (name) {
+    const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
+    const searchStr = decodeURI(window.location.search)
+    const r = searchStr.substr(1).match(reg)
+    if (r != null) return unescape(r[2])
+    return null
+  }
+
   export default {
     name: 'app',
     components: {
@@ -95,6 +113,14 @@
             { validator: colorValidator, trigger: 'blur' }
           ]
         },
+        options: [{
+          value: '1.4.1',
+          label: 'v1.4.1'
+        }, {
+          value: '2.0.0-alpha.8',
+          label: 'v2.0.0-alpha.8'
+        }],
+        version: getQueryString('v') || '2.0.0-alpha.8',
         path: '',
         originalStylesheetCount: -1,
         originalStyle: '',
@@ -118,6 +144,10 @@
     },
 
     methods: {
+      changeVer (val) {
+        const { origin, hash } = window.location
+        window.location = origin + `?v=${val}` + hash
+      },
 
       handleSelectMenu (val) {
         this.$router.push(val)
@@ -215,7 +245,7 @@
       },
 
       getIndexStyle () {
-        this.getFile('//unpkg.com/zarm-vue@2.0.0-alpha.8/zarm-vue.default.css')
+        this.getFile(`//unpkg.com/zarm-vue@${this.version}/zarm-vue.default.css`)
           .then(({ data }) => {
             this.originalStyle = this.getStyleTemplate(data)
             console.log(data)
@@ -224,13 +254,13 @@
       },
 
       getSeparatedStyles () {
-        this.getFile('//unpkg.com/zarm-vue@2.0.0-alpha.8/lib/theme/')
+        this.getFile(`//unpkg.com/zarm-vue@${this.version}/lib/theme/`)
           .then(({ data }) => {
             return data.match(/href="[\w-]+\.css"/g).map(str => str.split('"')[1])
           })
           .then(styleFiles => {
             return Promise.all(styleFiles.map(file => {
-              return this.getFile(`//unpkg.com/zarm-vue@2.0.0-alpha.8/lib/theme/${file}`)
+              return this.getFile(`//unpkg.com/zarm-vue@${this.version}/lib/theme/${file}`)
             }))
           })
           .then(files => {
