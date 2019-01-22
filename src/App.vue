@@ -80,14 +80,6 @@
   const primaryDefaultColor = '#12c287'
   const primaryDefaultActiveColor = '#0e9367'
 
-  const getQueryString = function (name) {
-    const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
-    const searchStr = decodeURI(window.location.search)
-    const r = searchStr.substr(1).match(reg)
-    if (r != null) return unescape(r[2])
-    return null
-  }
-
   export default {
     name: 'app',
     components: {
@@ -120,7 +112,7 @@
           value: '2.0.0-alpha.8',
           label: 'v2.0.0-alpha.8'
         }],
-        version: getQueryString('v') || '2.0.0-alpha.8',
+        version: '2.0.0-alpha.8',
         path: '',
         originalStylesheetCount: -1,
         originalStyle: '',
@@ -145,8 +137,10 @@
 
     methods: {
       changeVer (val) {
-        const { origin, hash } = window.location
-        window.location = origin + `?v=${val}` + hash
+        // const { origin, hash } = window.location
+        // window.location = origin + `?v=${val}` + hash
+        this.version = val
+        this.getIndexStyle()
       },
 
       handleSelectMenu (val) {
