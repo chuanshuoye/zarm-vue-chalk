@@ -13,6 +13,10 @@ body {
 
 .wrapper {
   height: 100%;
+
+  .el-menu {
+    border-width: 0;
+  }
 }
 
 a {
@@ -44,6 +48,7 @@ header::after {
 
 .content {
   padding: 20px;
+  border-left: 1px solid #e6e6e6;
 }
 
 .header-logo {

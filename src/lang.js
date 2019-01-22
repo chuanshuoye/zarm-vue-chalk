@@ -12,6 +12,14 @@ export default {
     {
       'name': '图标',
       'url': '/simulator/icon'
+    },
+    {
+      'name': '表单',
+      'url': '/simulator/form'
+    },
+    {
+      'name': '键盘',
+      'url': '/simulator/keyboard'
     }
   ],
   form: {
