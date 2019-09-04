@@ -58,15 +58,15 @@
          <za-panel-header title='Tabs' ></za-panel-header>
          <za-panel-body>
            <za-tabs v-model="activeName">
-             <za-tab-pane label="用户管理" name="first">
+             <za-tab-panel label="用户管理" name="first">
                <div class="content">用户管理</div>
-             </za-tab-pane>
-             <za-tab-pane label="配置管理" name="second">
+             </za-tab-panel>
+             <za-tab-panel label="配置管理" name="second">
                <div class="content">配置管理</div>
-             </za-tab-pane>
-             <za-tab-pane label="角色管理" name="third">
+             </za-tab-panel>
+             <za-tab-panel label="角色管理" name="third">
                <div class="content">角色管理</div>
-             </za-tab-pane>
+             </za-tab-panel>
            </za-tabs>
          </za-panel-body>
       </za-panel>

@@ -106,13 +106,10 @@
           ]
         },
         options: [{
-          value: '1.4.1',
-          label: 'v1.4.1'
-        }, {
-          value: '2.0.0-alpha.8',
-          label: 'v2.0.0-alpha.8'
+          value: '1.6.1',
+          label: '1.6.1'
         }],
-        version: '2.0.0-alpha.8',
+        version: '1.6.1',
         path: '',
         originalStylesheetCount: -1,
         originalStyle: '',

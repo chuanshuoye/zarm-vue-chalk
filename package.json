@@ -9,7 +9,8 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "deploy": "npm run build && gh-pages -d dist"
+    "page": "gh-pages -d dist",
+    "deploy": "npm run build"
   },
   "dependencies": {
     "blob-util": "^1.3.0",
@@ -21,7 +22,7 @@
     "object-assign": "^4.1.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "zarm-vue": "^2.0.0-alpha.8"
+    "zarm-vue": "^1.6.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
